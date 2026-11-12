@@ -1,0 +1,14 @@
+sheets:
+  Classificação:
+    skip: true
+    reason: Requisitos do sistema de classificação já estão no IDS Geral.
+  MEP-Condutas Circulares:
+    skip: true
+    reason: >-
+      IfcDuctSegment sem atributo que distinga condutas circulares; MEP-Condutas
+      ("rectangulares ou circulares") já cobre todas as condutas.
+  MEP-UnidadesExterioresAC:
+    skip: true
+    reason: >-
+      IfcUnitaryEquipment sem PredefinedType que distinga unidades exteriores;
+      MEP-UnidadesAC já cobre todas as unidades.

@@ -1,0 +1,81 @@
+# Desvios conhecidos entre o IDS GERADO e o IDS de REFERÊNCIA (00-ref-ids-gr).
+#
+# Regra do projeto: a verdade é a folha LOIN corrigida contra o esquema IFC oficial.
+# Os IDS de referência foram feitos à mão (usBIM.IDSeditor) e têm erros; cada diferença
+# aceite fica aqui registada com o motivo. O teste falha se aparecer uma diferença nova
+# OU se uma diferença listada deixar de existir (para manter esta lista honesta).
+#
+# Formato da chave:  "<identifier na referência> | <secção> <+|-> <faceta>"
+#   +  existe no gerado e falta na referência
+#   -  existe na referência e falta no gerado
+# Os motivos são reutilizados através de âncoras YAML.
+
+reasons:
+  - &omit "A folha marca o requisito na fase 'Projeto de Execução'; a referência omitiu-o."
+  - &typo "Gralha na referência (ex.: 'Lenght', 'ValveMechanisme'); o gerado usa o nome do esquema IFC."
+  - &swap "A referência troca as entidades: 'Lanço de escadas' tem de ser IfcStairFlight e 'Lanço de rampas' IfcRampFlight (e os Qto respetivos)."
+  - &dtype "dataType da referência diferente do esquema IFC oficial (ifcopenshell); o gerado segue o esquema."
+  - &enum43 "Em IFC4X3 o enumerado IfcCoveringTypeEnum inclui COPING e TOPPING; a referência usou a lista do IFC4."
+  - &dup "A referência repete o mesmo requisito; o gerado não duplica."
+  - &mat "A folha M-Betão foi convertida (com filtro Name ~ .*concrete.*, como no IDS EST); a referência ARQ omitiu-a."
+  - &rodape "O gerado exige sempre o atributo PredefinedType quando a folha o marca; a referência bSPT omitiu-o em Rodapés."
+  - &noattr "A folha não marca OperationType; a referência acrescentou-o."
+
+bSPT-Geral: {}
+
+bSPT-ARQ:
+  "(gerado) M-Betão | especificação só no gerado (IFCMATERIAL)": *mat
+  "AQR-Paredes | requisito + property Qto_WallBaseQuantities.Length (IFCLENGTHMEASURE)": *omit
+  "ARQ-Coberturas | requisito + property Pset_RoofCommon.IsExternal (IFCBOOLEAN)": *omit
+  "ARQ-Guardas | requisito + property Qto_RailingBaseQuantities.Length (IFCLENGTHMEASURE)": *typo
+  "ARQ-Guardas | requisito - property Qto_RailingBaseQuantities.Lenght (IFCPOSITIVELENGTHMEASURE)": *typo
+  "ARQ-Portas | requisito - attribute OperationType": *noattr
+  "ARQ-Rodapes | requisito + attribute PredefinedType": *rodape
+
+bSPT-EST:
+  "EST-Escadas | referência duplicada property Pset_StairCommon.NumberOfRiser (IFCCOUNTMEASURE)": *dup
+  "EST-Pilares | referência duplicada property Qto_ColumnBaseQuantities.NetVolume (IFCVOLUMEMEASURE)": *dup
+  "EST-Sapatas | requisito + property Qto_FootingBaseQuantities.Height (IFCLENGTHMEASURE)": *omit
+  "EST-Sapatas | requisito + property Qto_FootingBaseQuantities.OuterSurfaceArea (IFCAREAMEASURE)": *omit
+
+bSPT-MEP:
+  "MEP-CaixasVisita | requisito + material": *omit
+  "MEP-Condutas | requisito + property Qto_DuctSegmentBaseQuantities.Length (IFCLENGTHMEASURE)": *typo
+  "MEP-Condutas | requisito - property Qto_DuctSegmentBaseQuantities.Lenght (IFCLENGTHMEASURE)": *typo
+  "MEP-Difusores | requisito + material": *omit
+  "MEP-Esteiras | requisito + property Qto_CableCarrierSegmentBaseQuantities.Length (IFCLENGTHMEASURE)": *typo
+  "MEP-Esteiras | requisito - property Qto_CableCarrierSegmentBaseQuantities.Lenght (IFCLENGTHMEASURE)": *typo
+  "MEP-QuadrosElectricos | requisito + material": *omit
+
+SRU0198-Geral: {}
+
+SRU0198-ARQ:
+  "ARQ-RevPavCobTet | aplicabilidade + attribute PredefinedType∈{CEILING,CLADDING,COPING,FLOORING,INSULATION,MEMBRANE,MOLDING,NOTDEFINED,ROOFING,SLEEVING,TOPPING,USERDEFINED,WRAPPING}": *enum43
+  "ARQ-RevPavCobTet | aplicabilidade - attribute PredefinedType∈{CEILING,CLADDING,FLOORING,INSULATION,MEMBRANE,MOLDING,NOTDEFINED,ROOFING,SLEEVING,USERDEFINED,WRAPPING}": *enum43
+
+SRU0198-EST:
+  "EST-LancoEscadas | aplicabilidade + entity IFCSTAIRFLIGHT": *swap
+  "EST-LancoEscadas | aplicabilidade - entity IFCRAMPFLIGHT": *swap
+  "EST-LancoEscadas | requisito + property Qto_StairFlightBaseQuantities.NetVolume (IFCVOLUMEMEASURE)": *swap
+  "EST-LancoEscadas | requisito - property Qto_RampFlightBaseQuantities.NetVolume (IFCVOLUMEMEASURE)": *swap
+  "EST-LancoRampas | aplicabilidade + entity IFCRAMPFLIGHT": *swap
+  "EST-LancoRampas | aplicabilidade - entity IFCSTAIRFLIGHT": *swap
+  "EST-LancoRampas | requisito + property Qto_RampFlightBaseQuantities.NetVolume (IFCVOLUMEMEASURE)": *swap
+  "EST-LancoRampas | requisito - property Qto_StairFlightBaseQuantities.NetVolume (IFCVOLUMEMEASURE)": *swap
+
+SRU0198-MEP:
+  "MEP-CaixasDerivacao | requisito + property Pset_JunctionBoxTypeCommon.NumberOfGangs (IFCCOUNTMEASURE)": *dtype
+  "MEP-CaixasDerivacao | requisito - property Pset_JunctionBoxTypeCommon.NumberOfGangs (IFCINTEGER)": *dtype
+  "MEP-Comutadores | requisito + property Pset_SwitchingDeviceTypeCommon.NumberOfGangs (IFCCOUNTMEASURE)": *dtype
+  "MEP-Comutadores | requisito - property Pset_SwitchingDeviceTypeCommon.NumberOfGangs (IFCINTEGER)": *dtype
+  "MEP-Condutas | referência duplicada property Qto_DuctSegmentBaseQuantities.OuterSurfaceArea (IFCAREAMEASURE)": *dup
+  "MEP-Condutas | requisito + property Qto_DuctSegmentBaseQuantities.GrossCrossSectionArea (IFCAREAMEASURE)": *omit
+  "MEP-Condutas | requisito + property Qto_DuctSegmentBaseQuantities.Length (IFCLENGTHMEASURE)": *typo
+  "MEP-Condutas | requisito - property Qto_DuctSegmentBaseQuantities.Lenght (IFCLENGTHMEASURE)": *typo
+  "MEP-Esteiras | requisito + property Qto_CableCarrierSegmentBaseQuantities.Length (IFCLENGTHMEASURE)": *typo
+  "MEP-Esteiras | requisito - property Qto_CableCarrierSegmentBaseQuantities.Lenght (IFCLENGTHMEASURE)": *typo
+  "MEP-QuadrosElectricos | requisito + attribute Tag": *omit
+  "MEP-Tomadas | requisito + property Pset_OutletTypeCommon.NumberOfSockets (IFCCOUNTMEASURE)": *dtype
+  "MEP-Tomadas | requisito - property Pset_OutletTypeCommon.NumberOfSockets (IFCINTEGER)": *dtype
+  "MEP-Valvulas | requisito + property Pset_ValveTypeCommon.ValveMechanism (IFCLABEL)": *typo
+  "MEP-Valvulas | requisito - property Pset_ValveTypeCommon.ValveMechanisme (IFCVALVETYPEENUM)": *typo

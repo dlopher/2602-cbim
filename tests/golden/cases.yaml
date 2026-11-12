@@ -1,0 +1,16 @@
+# Pares de referência (golden): folha LOIN → IDS esperado.
+# Todos usam a fase "Projeto de Execução" (a usada nas referências).
+defaults:
+  ref_dir: 00-ref-ids-gr
+  phase: Projeto de Execução
+  min_occurs: 1
+
+cases:
+  bSPT-Geral:    {loin: bSPT-LOIN-Geral.ods,     ids: bSPT-IDS-Geral.ids,     ifc_version: IFC4, identifier_prefix: "G-"}
+  bSPT-ARQ:      {loin: bSPT-LOIN-ARQ.ods,       ids: bSPT-IDS-ARQ.ids,       ifc_version: IFC4}
+  bSPT-EST:      {loin: bSPT-LOIN-EST.ods,       ids: bSPT-IDS-EST.ids,       ifc_version: IFC4}
+  bSPT-MEP:      {loin: bSPT-LOIN-MEP.ods,       ids: bSPT-IDS-MEP.ids,       ifc_version: IFC4}
+  SRU0198-Geral: {loin: SRU0198-LOIN-Geral.xlsx, ids: SRU0198-IDS-Geral.ids,  ifc_version: IFC4X3_ADD2, identifier_prefix: "G-"}
+  SRU0198-ARQ:   {loin: SRU0198-LOIN-ARQ.xlsx,   ids: SRU0198-IDS-ARQ.ids,    ifc_version: IFC4X3_ADD2}
+  SRU0198-EST:   {loin: SRU0198-LOIN-EST.xlsx,   ids: SRU0198-IDS-EST.ids,    ifc_version: IFC4X3_ADD2}
+  SRU0198-MEP:   {loin: SRU0198-LOIN-MEP.xlsx,   ids: SRU0198-IDS-MEP.ids,    ifc_version: IFC4X3_ADD2}

@@ -1,0 +1,18 @@
+# Decisões para converter bSPT-LOIN-ARQ.ods (referência golden).
+sheets:
+  ARQ-Tetos:
+    skip: true
+    reason: >-
+      Folha incompleta: 'Espessura?' sem conjunto de propriedades e entidade declarada fora do sítio;
+      sobrepõe-se a ARQ-RevPavCobTet (IfcCovering). A referência também a omite.
+  ARQ-CoberturasRevestimentos:
+    skip: true
+    reason: >-
+      Folha incompleta ('Espessura?' sem Pset; GrossArea em Qto_RoofBaseQuantities para IfcCovering);
+      sobrepõe-se a ARQ-RevPavCobTet. A referência também a omite.
+  Classificação:
+    skip: true
+    reason: Requisitos do sistema de classificação já estão no IDS Geral.
+  M-Betão:
+    applicability:
+      - {attribute: Name, pattern: ".*concrete.*"}

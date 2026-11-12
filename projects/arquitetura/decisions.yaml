@@ -1,0 +1,7 @@
+# Decisões para 01-loin-target/02-LOIN-Arquitetura.xlsx
+psets:
+  WBS_bSPT:
+    accept: true
+    # Pset próprio do projeto (não existe no esquema IFC). Sem data_type o IDS só exige
+    # que a propriedade exista com qualquer valor. Para exigir texto, descomente:
+    # data_type: IFCLABEL

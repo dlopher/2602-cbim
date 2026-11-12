@@ -1,0 +1,11 @@
+# Cabeçalho e parâmetros do IDS gerado a partir de 01-loin-target/02-LOIN-Arquitetura.xlsx
+title: Arquitetura
+# copyright: <entidade>            # opcional
+version: V1
+# author: nome@dominio.pt          # opcional; o IDS 1.0 exige um e-mail
+date: 2026-11-12
+# purpose / milestone: se omitidos, lidos da folha (linha "Propósito" e nome da fase)
+ifc_version: IFC4X3_ADD2           # IFC2X3 | IFC4 | IFC4X3_ADD2
+phase: Projeto de Execução         # coluna de fase a usar (a folha só tem esta)
+min_occurs: 1                      # 1 = o modelo TEM de conter pelo menos um elemento de cada especificação
+                                   # 0 = a especificação só se verifica se existirem elementos

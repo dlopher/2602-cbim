@@ -1,0 +1,26 @@
+# Mapeamento das tabelas de classificação (coluna H da secção "Classificação") para
+# os prefixos de código exigidos no IDS.
+#
+# Cada tabela → lista de requisitos; cada requisito → lista de prefixos alternativos.
+#   [[Ss_], [EF_], [Pr_]]  → três requisitos: Ss_.*, EF_.* e Pr_.*
+#   [[Pr_, Ss_]]           → um requisito: (Pr_|Ss_).*
+#
+# As chaves são comparadas sem acentos, em minúsculas e sem espaços.
+# Uma tabela desconhecida gera um erro bloqueante, a resolver em decisions.yaml
+# (classification_tables) ou acrescentando-a aqui.
+
+systems:
+  SECClasS: [secclass]
+
+tables:
+  SECClasS:
+    "Entidades": [[En_]]
+    "Complexos": [[Co_]]
+    "Espaços/ locais": [[SL_]]
+    "Espaços/locais": [[SL_]]
+    "Elementos/ Funções": [[EF_]]
+    "Sistemas": [[Ss_]]
+    "Produtos": [[Pr_]]
+    "Atividades": [[Ac_]]
+    "Elementos/ Funções, Sistemas e Produtos": [[Ss_], [EF_], [Pr_]]
+    "Produtos ou Sistemas": [[Pr_, Ss_]]

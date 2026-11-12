@@ -1,0 +1,119 @@
+{
+  "source": "01-loin-target/02-LOIN-Arquitetura.xlsx",
+  "output": "out/02-IDS-Arquitetura.ids",
+  "counts": {
+    "blocker": 0,
+    "warning": 1,
+    "info": 11
+  },
+  "issues": [
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Paredes",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Pavimentos",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-RevPavCobTet",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Rodapés",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Coberturas",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Escadas",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Rampas",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Portas",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Janelas",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "fix-atributo",
+      "sheet": "ARQ-Guardas",
+      "message": "atributo 'Predifined Type' corrigido para 'PredefinedType' (alias).",
+      "row": 16,
+      "item": "Predifined Type",
+      "suggestion": null
+    },
+    {
+      "level": "warning",
+      "code": "fix-propriedade",
+      "sheet": "ARQ-Guardas",
+      "message": "propriedade 'Lenght' corrigido para 'Length' (fuzzy).",
+      "row": 22,
+      "item": "Lenght",
+      "suggestion": null
+    },
+    {
+      "level": "info",
+      "code": "applicability-exclusion",
+      "sheet": "ARQ-RevPavCobTet",
+      "message": "IfcCovering: PredefinedType ['SKIRTINGBOARD'] excluído da aplicabilidade (coberto por outra folha).",
+      "row": null,
+      "item": null,
+      "suggestion": null
+    }
+  ]
+}

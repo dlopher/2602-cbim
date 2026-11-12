@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loin2ids"
+version = "0.1.0"
+description = "Conversor de folhas LOIN (Level of Information Need, .xlsx/.ods) para IDS 1.0 (buildingSMART)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "ifcopenshell>=0.8",
+    "ifctester>=0.8",
+    "openpyxl>=3.1",
+    "PyYAML>=6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+loin2ids = "loin2ids.cli:main"
+
+[tool.setuptools]
+packages = ["loin2ids"]
+
+[tool.setuptools.package-data]
+loin2ids = ["config/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

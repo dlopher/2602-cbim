@@ -1,0 +1,7 @@
+sheets:
+  Classificação:
+    skip: true
+    reason: Requisitos do sistema de classificação já estão no IDS Geral.
+  M-Betão:
+    applicability:
+      - {attribute: Name, pattern: ".*concrete.*"}

@@ -1,0 +1,46 @@
+# Sinónimos reconhecidos nas folhas LOIN (comparação sem acentos, minúsculas, espaços colapsados).
+# Acrescente aqui novas variantes em vez de alterar o código.
+
+# Coluna A: rótulo que identifica o objeto da folha (valor na coluna H)
+object_labels: [objetos, objeto, classe, material, materiais]
+
+# Coluna A: início da secção alfanumérica (tudo o que está antes é geometria/cabeçalho)
+alphanumeric_start: [requisitos minimos de informacao alfanumerica]
+geometric_start: [requisitos minimos de informacao geometrica]
+
+# Texto que marca a linha/célula das fases
+phase_label: [fase de projeto, fase de projeto / marco de entrega, marco de entrega, fase]
+
+# Coluna B: secções (comparação por prefixo)
+sections:
+  classe_ifc: [classe ifc]
+  atributos: [atributos]
+  propriedades: [grupos de propriedades, conjuntos de propriedades, conjunto de propriedades, propriedades]
+  materiais: [materiais, material]
+  classificacao: [classificacao]
+  georef: [georeferenciacao]
+  referencias: [referencias]
+  nota: [nota, notas, observacoes, obs]
+
+# Linhas de cabeçalho dentro das secções (coluna C) — ignoradas
+section_headers: [propriedade, sistema, atributo]
+
+# Marcas que significam "obrigatório"
+required_marks: [x, "✓", "✔", sim, s]
+
+# Quando a folha não tem linha "Classe IFC", usa o nome do objeto (coluna H) para deduzir a entidade
+object_entity_defaults:
+  sistema de classificacao: IfcClassification
+
+# Entidade por omissão para a secção "Referências" sem "Classe IFC" própria
+references_default_entity: IfcClassificationReference
+
+# Nomes de folhas a ignorar sempre (índices, observações)
+ignore_sheets: [obs, indice, index, legenda]
+
+# Correções conhecidas de nomes de atributos (aplicadas antes da correspondência aproximada;
+# reportadas como "info" e não como aviso)
+attribute_aliases:
+  predifined type: PredefinedType
+  predefined type: PredefinedType
+  predifinedtype: PredefinedType
